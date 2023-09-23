@@ -109,9 +109,38 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: AJAY ASWIN M
+RegisterNumber:  212222240005
 */
+# SR
+```
+module exp5(S,R,Q,Qbar,clk);
+input S,R,clk;
+output reg Q,Qbar;
+initial Q = 0;
+initial Qbar = 1;
+always @(posedge clk)
+begin
+Q = S|(Q & (~R));
+Qbar = R|((Qbar) & (~S));
+end
+endmodule
+```
+# JK
+```
+module exp5(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+```
 
 
 
@@ -119,17 +148,24 @@ RegisterNumber:
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+#### SR FLIPFLOP RTL LOGIC
+
+![270082853-895c0bf5-8ea5-48d8-85c7-8190fcbda6e7](https://github.com/AJAYASWIN-M/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118679692/f0d1c508-c4d9-4dd6-8ae9-4769ed748cb1)
 
 
 
+#### JK FLIPFLOP RTL LOGIC
 
-
-
+![270084266-f40dad5d-b7bd-4e51-99c0-b85ce8bca4e4](https://github.com/AJAYASWIN-M/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118679692/a48bedea-1604-4e8a-90f5-4c13d12f5250)
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+#### SR TIMING DIAGRAM
+![268428288-6afdbb2d-19bf-4d9c-8932-639b5322eefa](https://github.com/AJAYASWIN-M/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118679692/70422f76-b9ee-4371-ae62-ca46c2e64359)
 
+#### JK TIMING DIAGRAM
+![270084312-b927445d-24c6-4384-a5bc-299fca9c5db8](https://github.com/AJAYASWIN-M/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118679692/a6a9ca89-3530-42ce-96f2-b86926037725)
 
 
 
